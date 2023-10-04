@@ -1,0 +1,44 @@
+﻿<Window x:Class="TurboAzADO.NET.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TurboAzADO.NET"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListView ItemsSource="{Binding Elanlar}" Width="200" Height="380" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="190">
+                        <TextBlock Text="{Binding Marka}" Height="30"></TextBlock>
+                        <TextBlock Text="{Binding Model}" Height="30"></TextBlock>
+                        <TextBlock Text="{Binding Year}" Height="30"></TextBlock>
+                        <TextBlock Text="{Binding Color}" Height="30"></TextBlock>
+                        <TextBlock Text="{Binding Description}" Height="30"></TextBlock>
+                        <TextBlock Text="{Binding Price}" Height="30"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Orientation="Horizontal" Margin="200,10,0,370" Height="20" Width="580">
+            <TextBlock Text="Marka" Width="100"></TextBlock>
+            <TextBlock Text="Model" Width="100"></TextBlock>
+            <TextBlock Text="Year" Width="100"></TextBlock>
+            <TextBlock Text="Color" Width="100"></TextBlock>
+            <TextBlock Text="Description" Width="100"></TextBlock>
+            <TextBlock Text="Price" Width="100"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="190,0,0,300"  Background="Red" Height="40" Width="580">
+            <ComboBox x:Name="Marka_TBox" ItemsSource="{Binding CarMarkas, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="30" Width="100"></ComboBox>
+            <ComboBox x:Name="Model_TBox" ItemsSource="{Binding CarModelsCollection ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="30" Width="100"></ComboBox>
+            <TextBox x:Name="Year_TBox" Height="30" Width="100"></TextBox>
+            <TextBox x:Name="Color_TBox" Height="30" Width="100"></TextBox>
+            <TextBox x:Name="Description_TBox" Height="30" Width="100"></TextBox>
+            <TextBox x:Name="Price_TBox" Height="30" Width="100"></TextBox>
+        </StackPanel>
+        <Button x:Name="AddButton" Height="30" Width="100" Click="AddButton_Click" Margin="300,0,0,200" >Add Car</Button>
+
+        <Button Width="100" Height="30" Click="Button_Click">Show Elanlar</Button>
+    </Grid>
+</Window>
